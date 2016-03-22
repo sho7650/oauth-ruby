@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+    <%= current_user.name %><br />
+    <%= link_to 'Sign out,', signout_path %>
+<% else %>
+    <%= link_to 'Sign in with Salesforce', '/auth/salesforce' %>
+<% end %>
