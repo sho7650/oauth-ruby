@@ -8,8 +8,8 @@ class TestController < ApplicationController
   #        :client_id     => Rails.application.config.salesforce_app_id,
   #        :client_secret => Rails.application.config.salesforce_app_secret
 
-      accounts = client.query("select Id, Name from Account")
-      @account = accounts.first
+#      accounts = client.query("select Id, Name from Account")
+#      @account = accounts.first
     end
   end
 end
