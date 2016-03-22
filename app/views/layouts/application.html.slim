@@ -5,10 +5,4 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    div#current_user_status
-      - if current_user
-        p Welcome #{current_user.name}
-      - else
-        = link_to "Sign in with Salesforce", "/auth/salesforce", id: "sign_in"
-
     == yield

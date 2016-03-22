@@ -4,6 +4,8 @@ gem 'restforce', '2.1.2'
 gem 'omniauth-salesforce'
 gem 'slim-rails'
 
+gem 'thin'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use sqlite3 as the database for Active Record
