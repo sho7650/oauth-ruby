@@ -1,6 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OAuth2.0+Restforce Sample</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
+
 <% if user_signed_in? %>
-    <%= current_user.name %><br />
-    <%= link_to 'Sign out,', signout_path %>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">メニュー</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="disabled">
+          <a href="#">
+            <%= current_user.name %>
+          </a>
+        </li>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/info">情報</a></li>
+        <li>
+          <%= link_to 'サインアウト', signout_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
 <% else %>
-    <%= link_to 'Sign in with Salesforce', '/auth/salesforce' %>
+
+<nav class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+      <span class="sr-only">メニュー</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <div id="gnavi" class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="disabled"><a href="#">未ログイン</a></li>
+      <li><a href="/">ホーム</a></li>
+      <li class="disabled"><a href="/info">情報</a></li>
+      <li>
+        <%= link_to 'サインイン', '/auth/salesforce' %>
+      </li>
+    </ul>
+  </div>
+</nav>
 <% end %>
+
+<%= yield %>
+
+</div>
+<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>

@@ -1,9 +1,64 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading">サインイン状況</div>
+  <div class="panel-body">
+
+<% if user_signed_in? %>
+  <%= current_user.name %>
+<% else %>
+  現在、サインインしていません
+<% end %>
+  </div>
+  <div class="panel-footer">
+<%= Time.now.to_s %>
+  </div>
+</div>
+
+<%
+=begin
+%>
+
 <h1>Test#Index</h1>
-<% if current_user %>
-  Welcome <%= current_user.name %>!
+<% if user_signed_in? %>
+  <p>Welcome <%= current_user.name %>!</p>
+
+    <%# session.keys %>
+
+    <%= form_tag("/query", method: "post") do %>
+      <%= label_tag(:q, "query for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("QUERY") %>
+    <% end %>
+
+<%
+=begin
+%>
+    <% form_tag(:controller => test, :action => query) %>
+      <%= f.text_area :query, size: "800x5" %>
+      <%= submit_tag "QUERY" %>
+    <% end %>
+
+    <% %w(id uid name oauth_token refresh_token instance_url created_at updated_at model_name default_timezone).each do |m| %>
+      <% res = current_user.send(m) %>
+      <%= "#{m} : #{res}" %><br />
+    <% end %>
+
+<%
+=begin
+%>
+    <% @current_user.methods.each do |m| %>
+      <%= m %><br />
+    <% end %>
+
+  </p>
   <%= link_to "Sign Out", signout_path %>
 <% else %>
   <%= link_to "Sign in with Salesforce", "/auth/salesforce" %>
 <% end %>
 <br/>
 <p id="notice"><%= notice %></p>
+
+
+<%
+=end
+%>

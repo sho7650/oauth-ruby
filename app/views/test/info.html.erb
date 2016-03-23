@@ -1,0 +1,80 @@
+
+<hr>
+
+<% if user_signed_in? %>
+
+<% thumbnail = @results[:photos][:thumbnail] %>
+<% picture   = @results[:photos][:picture] %>
+<% url       = @results[:urls][:custom_domain].to_s + "/" + @results[:user_id].to_s %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= image_tag(thumbnail, :class => 'img-circle') %>ユーザ状況</div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>項目</th>
+        <th>内容</th>
+        <th rowspan="10">
+          <%= image_tag(picture) %>
+        </th>
+        <tr>
+          <td>ユーザ名</td>
+          <td>
+            <%= link_to current_user.name, url %> <br />
+          </td>
+        </tr>
+        <tr>
+          <td>ログンユーザ名</td>
+          <td>
+            <%= @results[:username] %> <br />
+          </td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td>
+            <%= @results[:email] %> <br />
+          </td>
+        </tr>
+        <tr>
+          <td>user_id</td>
+          <td>
+            <%= @results[:user_id] %> <br />
+          </td>
+        </tr>
+        <tr>
+          <td>organization_id</td>
+          <td>
+            <%= @results[:organization_id] %> <br />
+          </td>
+        </tr>
+      </table>
+
+    </div>
+    <div class="panel-footer">
+      <%= Time.now.to_s %>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            取得できる情報一覧
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body">
+          <% @results.keys.each do |item| %>
+          <%= "#{item} : #{@results[item]}" %>
+          <br />
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+    現在、サインインしていません
+  <% end %>

@@ -1,0 +1,26 @@
+<p> query results = <br />
+
+  <% if @results == "err" %>
+    <p> <strong>query error</strong></p>
+
+  <% else %>
+    <% @results.each do |result| %>
+      <% result.keys.each do |item| %>
+
+        <% if item != 'attributes' %>
+          <%= "#{item} : #{result[item]}, " %>
+        <% end %>
+
+      <% end %>
+
+      <br />
+    <% end %>
+
+  <% end %>
+</p>
+
+<%= form_tag("/query", method: "post") do %>
+  <%= label_tag(:q, "query for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("QUERY") %>
+<% end %>
