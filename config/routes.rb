@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'test/index'
   root :to => 'test#index'
 
-  match 'query', to: 'test#query', via: [:get, :post]
+#  match 'query', to: 'test#query', via: [:get, :post]
   match 'info', to: 'test#info', via: [:get]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: 'test#failure', via: [:get, :post]
