@@ -5,8 +5,8 @@ class TestController < ApplicationController
       @client = Restforce.new :oauth_token => current_user.oauth_token,
         :refresh_token => current_user.refresh_token,
         :instance_url  => current_user.instance_url,
-        :client_id      => '3MVG9ZL0ppGP5UrBk4PFzk_tZlFHJko5GajvKj7neiN_PY3U1I7DeRzHwGISipPMV4ZVtho227mR80ONjrKbo',
-        :client_secret  => '1838435099939267213',
+        :client_id      => ENV['CLIENT_ID'],
+        :client_secret  => ENV['CLIENT_SECRET'],
         :authentication_callback => Proc.new {|x| Rails.logger.debug x.to_s},
         :api_version   => '36.0'
 
@@ -23,8 +23,8 @@ class TestController < ApplicationController
       client = Restforce.new :oauth_token => current_user.oauth_token,
         :refresh_token => current_user.refresh_token,
         :instance_url  => current_user.instance_url,
-        :client_id      => '3MVG9ZL0ppGP5UrBk4PFzk_tZlFHJko5GajvKj7neiN_PY3U1I7DeRzHwGISipPMV4ZVtho227mR80ONjrKbo',
-        :client_secret  => '1838435099939267213',
+        :client_id      => ENV['CLIENT_ID'],
+        :client_secret  => ENV['CLIENT_SECRET'],
         :authentication_callback => Proc.new {|x| Rails.logger.debug x.to_s},
         :api_version   => '36.0'
 
@@ -45,8 +45,8 @@ class TestController < ApplicationController
         client = Restforce.new :oauth_token => current_user.oauth_token,
           :refresh_token => current_user.refresh_token,
           :instance_url  => current_user.instance_url,
-          :client_id      => '3MVG9ZL0ppGP5UrBk4PFzk_tZlFHJko5GajvKj7neiN_PY3U1I7DeRzHwGISipPMV4ZVtho227mR80ONjrKbo',
-          :client_secret  => '1838435099939267213',
+          :client_id      => ENV['CLIENT_ID'],
+          :client_secret  => ENV['CLIENT_SECRET'],
           :authentication_callback => Proc.new {|x| Rails.logger.debug x.to_s},
           :api_version   => '36.0'
 
