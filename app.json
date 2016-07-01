@@ -1,0 +1,21 @@
+{
+  "name": "OAuth2.0 on Heroku",
+  "description": "Connection test to Salesforce with OAuth2.0 on Heroku.",
+  "keywords": [
+    "testing",
+    "ruby",
+    "Salesforce",
+    "OAuth"
+  ],
+  "repository": "https://github.com/tabesfdc/oauth-ruby",
+  "success_url": "/",
+  "image": "heroku/ruby",
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
