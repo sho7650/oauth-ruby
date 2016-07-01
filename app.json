@@ -9,6 +9,16 @@
   ],
   "repository": "https://github.com/tabesfdc/oauth-ruby",
   "success_url": "/",
+  "env": {
+    "CELIENT_ID": {
+      "description": "Client ID for OAuth2.0",
+      "value": "3MVG9ZL0ppGP5UrBk4PFzk_tZlFHJko5GajvKj7neiN_PY3U1I7DeRzHwGISipPMV4ZVtho227mR80ONjrKbo"
+    },
+    "CLIENT_SECRET": {
+      "description": "Secret ID for OAuth2.0",
+      "value": "1838435099939267213"
+    }
+  },
   "image": "heroku/ruby",
   "addons": [
     "heroku-postgresql"
